@@ -81,21 +81,21 @@ list_clusterning_coefs_allnodes
 gcc=np.mean(list_clusterning_coefs_allnodes)
 lcc=snap.GetClustCf(UGraph)
 
+#-Compute another Global Clustering Coef - Transitivity  
+DegToCCfV = snap.TFltPrV()
+triads = snap.GetClustCfAll(UGraph, DegToCCfV)
+for item in DegToCCfV:
+    print("degree: %d, clustering coefficient: %f" % (item.GetVal1(), item.GetVal2()))
+print("average clustering coefficient", result[0])
+print("closed triads", result[1])
+print("open triads", result[2])
 
-NI = UGraph.Nodes()
-NId = NI.GetId()
-GroupSet = snap.TIntSet()
-for NbrIdx in range(4):
-    GroupSet.AddKey(NI.GetOutNId(NbrIdx))
-
-#-Compute another Global Clustering Coef - Transitivity   
-#triads = snap.GetNodeTriadsAll(UGraph, NId)
-#closed_triads_num=triads[0]
-#open_triads_num=triads[2]
-#transitivity = 3*closed_triads_num/open_triads_num
+closed_triads_num=triads[1]
+open_triads_num=triads[2]
+transitivity = 3*closed_triads_num/open_triads_num
 
 
-print("----------------------------------------------------------\n-------------Clustering Coef Result------------------\n----------------------------------------------------------\n Global Clustering Coef(Average all nodes' LocalCC):", gcc,"\n Built-in Local Clustering Coef:", lcc)
+print("----------------------------------------------------------\n-------------Clustering Coef Result------------------\n----------------------------------------------------------\n Built-in Average of Local Clustering Coefs:",lcc, "\n Global Clustering Coef(Average all nodes' LocalCC):", gcc,"\n Global Clustering Coef(Transitivity=3*(#triangles)/(#triplets)):", transitivity)
 
 
 #------------------------------------------------------------
