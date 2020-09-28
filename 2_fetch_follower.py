@@ -11,10 +11,10 @@ import time
 # Variables that contains the user credentials to access Twitter API
 
 
-ACCESS_TOEKN = '298895919-TmpdhVzps8vqEebqI5GyL9z6wJ4zjjrDTIlzAgZF'
-ACEESS_KEY = '7kEwaMTaSVDOAZLpeT1P2VqNpsZcelJeMrPJXinNeLWvU'
-CONSUMER_KEY = 'v1AxLf4SRzYPgQQFTJNNQbVES'
-CONSUMER_SECRET = '88k4eaMuzPLfQ36MLLtLgiasM6DHOnl6WsGSpfmp0hexWsF7iu'
+ACCESS_TOEKN = '*****'
+ACEESS_KEY = '*****'
+CONSUMER_KEY = '*****'
+CONSUMER_SECRET = '*****'
 
 api=twitter.Api(consumer_key=CONSUMER_KEY,consumer_secret=CONSUMER_SECRET,access_token_key=ACCESS_TOEKN,access_token_secret=ACEESS_KEY)
 api.sleep_on_rate_limit=True
